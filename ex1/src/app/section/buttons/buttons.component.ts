@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
@@ -6,10 +6,12 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./buttons.component.css']
 })
 export class ButtonsComponent implements OnInit {
-  count=0;
+  // 이컴포넌트는 clickEvent라고 이름 지어진 이벤트를 만들수 있다. 
+  test=0;
+  @Output() clickEvent = new EventEmitter<string>();
   constructor() { }
   start(){
-   this.count++;
+   this.clickEvent.emit('change');
   }
 
   ngOnInit(): void {

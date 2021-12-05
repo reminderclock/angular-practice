@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-time-display',
@@ -6,14 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./time-display.component.css']
 })
 export class TimeDisplayComponent implements OnInit {
+  // 배열을 초기화 해주어야 한다.
+  @Input() inputData: string= "";
   test = 1;
   constructor() { 
-
-    setInterval(()=> {
-      this.test++;
-    },1000)
+    // console.log(this.inputData)
+    // setInterval(()=> {
+    //   this.test++;
+    // },1000)
   }
 
+  ngOnChanges(changes: SimpleChange){
+    console.log(changes)
+    for(let propName in changes){
+
+    }
+  }
   ngOnInit(): void {
   }
 
