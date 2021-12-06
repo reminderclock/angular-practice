@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
-  commandText:string = ""
-  present:string = "welcome"
+  present: string="welcome"
   constructor() { }
-  startTime($event:string){
-   this.present = $event
+  startTime($Event:any){
+    this.present = $Event;
   }
   ngOnInit(): void {
   }

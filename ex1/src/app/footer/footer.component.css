@@ -1,6 +1,5 @@
 .title {
-  background-color: green;
-  font-size: 30px;
-  width: 100%;
-  height: 20hv;
+    width: 100%;
+    height: 20vh;
+    background-color: red;
 }
