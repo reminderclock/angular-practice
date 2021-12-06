@@ -12,6 +12,12 @@ export class ButtonsComponent implements OnInit {
   start(){
    this.clickEvent.emit('start');
   }
+  stop(){
+    this.clickEvent.emit('stop')
+  }
+  reset() {
+    this.clickEvent.emit('reset')
+  }
 
   ngOnInit(): void {
   }

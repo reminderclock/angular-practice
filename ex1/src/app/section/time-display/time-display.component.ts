@@ -21,19 +21,35 @@ export class TimeDisplayComponent implements OnInit {
   }
   timeStart(){
     this.timeInterval = setInterval(() => {
-
+      this.miliSeconds++;
     },10)
     clearInterval()
   }
-  ngOnChanges(changes: SimpleChange){
+  timeStop() {
+    clearInterval(this.timeInterval)
+  }
+
+  timeReset(){
+    this.timeStop();
+    this.miliSeconds = 0;
+  }
+  // console.log(changes)
+  playTimer(state: string) {
+    if(state === "start") this.timeStart();
+    else if(state === 'stop') this.timeStop();
+    else if(state === 'reset') this.timeReset();
+  }
+  // interface IChanges {[key:string]:SimpleChange}
+  ngOnChanges(changes: {[key:string]:SimpleChange}){
     console.log(changes)
     for(let propName in changes){
-      if(propName === "inputData" && changes[propName].currentValue == "start") {
-        this.timeStart()
+      if(propName === "inputData") {
+        this.playTimer(changes[propName].currentValue)
+        // this.timeStart()
         }
       }
     }
-  }
+
   ngOnInit(): void {
   }
 
