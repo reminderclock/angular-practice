@@ -1,0 +1,10 @@
+
+<div class="main">
+    <app-time-display [inputData]="present"></app-time-display>
+    <app-buttons (clickEvent)="startTime($event)"></app-buttons>
+</div>
+
+<a [routerLink]="'/clock'">시계로 이동</a>
+
+<button (click)="goClock()">시게로 이동</button>
+<button (click)="pageToggleService.pulsCount()"></button>

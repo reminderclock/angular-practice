@@ -11,7 +11,8 @@ timeInterval:any;
 min:number=0;
 sec:number=0;
 miliSec:number=0;
-  constructor() { }
+routingCount = 0;
+  constructor(public pageToggleService: PageTransitionEvent) { }
   getTime(){
     this.miliSec++;
     if(this.miliSec === 100) {
@@ -45,6 +46,9 @@ miliSec:number=0;
     else if(state === "stop") this.stopTime();
     else if(state === "reset") this.resetTime();
   }
+  pulsCount() {
+    this.routingCount++;
+  }
   ngOnChanges(changes:{[key:string]:SimpleChange}){
     for(let propName in changes){
       if(propName === "inputData"){
@@ -54,5 +58,14 @@ miliSec:number=0;
   }
   ngOnInit(): void {
   }
+  ngDoCheck() {
+
+  }
+  ngAfterContentInit(){}
+  ngAfterContentChecked(){}
+  ngAfterViewInit(){}
+  ngAfterViewCheck(){}
+  ngOnDestroy(){}
+
 
 }
